@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Chaiii</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+      z-index: 2;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      border-radius: 50% 50% 45% 45%;
+      background: radial-gradient(circle at 30% 30%, #ff6666, #cc0000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+      animation: float 10s infinite ease-in;
+    }
+
+    .balloon:after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 20px;
+      background: white;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-120vh) rotate(360deg); }
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      margin-top: 20px;
+      border: none;
+      border-radius: 12px;
+      background: #ff4081;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 2;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: yellow;
+      text-shadow: 2px 2px 5px #000;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 HAPPYYY BIRTHDAYYY CHAIII 🎉</h1>
+  <button onclick="showMessage()">🎁 Tap for your surprise 🎁</button>
+  <div class="message" id="surprise">💖 Chaiii, wishing you the most amazing 20th birthday ever! 🎂✨</div>
+
+  <script>
+    // Generate balloons
+    for (let i = 0; i < 20; i++) {
+      let balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.textContent = "20";
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.animationDuration = (6 + Math.random() * 5) + "s";
+      balloon.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random()*360}, 70%, 60%), hsl(${Math.random()*360}, 80%, 40%))`;
+      document.body.appendChild(balloon);
+    }
+
+    function showMessage() {
+      document.getElementById("surprise").style.display = "block";
+    }
+  </script>
+</body>
+</html>
